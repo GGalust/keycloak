@@ -1,6 +1,10 @@
+import keycloak from './keycloak';
+
 const Login = () => {
-    const handleClick = () => {
-        window.location.href = "http://localhost:9090/realms/cognaize-realm/protocol/openid-connect/auth?client_id=worktimal-workflow-client&redirect_uri=http%3A%2F%2Flocalhost%3A5173%2F&response_mode=fragment&response_type=code&scope=openid";
+
+    const handleClick = async () => {
+        await keycloak.init();
+        //window.location.href = "http://localhost:9090/realms/cognaize-realm/protocol/openid-connect/auth?client_id=worktimal-workflow-client&redirect_uri=http%3A%2F%2Flocalhost%3A5173%2F&response_mode=fragment&response_type=code&scope=openid";
     }
 
     const handleAPICall = async () => {
@@ -8,7 +12,6 @@ const Login = () => {
             credentials: "include",
         });
         const json = await response.json();
-        console.log({json})
     }
 
     return (
