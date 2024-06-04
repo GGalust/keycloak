@@ -9,19 +9,19 @@ const useAuth = () => {
         if(isRun.current) return;
 
         const keycloakClient = new Keycloak({
-            "url":"https://11ef-178-160-206-122.ngrok-free.app:9090",
+            "url":"https://localhost:9090",
             "realm": "cognaize-realm",
             "clientId": "worktimal-workflow-client"
         })
 
 
 
-        keycloakClient.init({onLoad:'login-required',checkLoginIframe: false}).then((res)=>{
-            console.log('success',res)
-            return setIsLogin(res)
-        }).catch((res)=>{
-            console.log('error',res)
-        })
+        // keycloakClient.init({onLoad:'login-required',checkLoginIframe: false}).then((res)=>{
+        //     console.log('success',res)
+        //     return setIsLogin(res)
+        // }).catch((res)=>{
+        //     console.log('error',res)
+        // })
 
         setClient(keycloakClient);
         isRun.current = true;

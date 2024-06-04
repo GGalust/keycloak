@@ -5,7 +5,7 @@ const Login = () => {
 
     const handleClick = async (e) => {
         e.preventDefault();
-        await client.init({checkLoginIframe: false});
+        await client.init({onLoad:'login-required',checkLoginIframe: false});
         //window.location.href = "http://localhost:9090/realms/cognaize-realm/protocol/openid-connect/auth?client_id=worktimal-workflow-client&redirect_uri=http%3A%2F%2Flocalhost%3A5173%2F&response_mode=fragment&response_type=code&scope=openid";
     }
 
