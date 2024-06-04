@@ -5,9 +5,7 @@ const Login = () => {
 
     const handleAPICall = async () => {
         const response = await fetch('http://localhost:8087/workflow-api/api/v1/oa/test',{
-            headers: {
-                credentials: "include",
-            }
+            credentials: "include",
         });
         const json = await response.json();
         console.log({json})
